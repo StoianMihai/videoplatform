@@ -15,10 +15,8 @@ const videoSchema = mongoose.Schema({
         type: Date,
         default: new Date()
     }
-
-
 });
 
-const CardVideo = mongoose.model('Videos', videoSchema);
+const CardVideos = mongoose.model('Videos', videoSchema);
 
-export default CardVideo;
+export default CardVideos;

@@ -1,14 +1,16 @@
 import { FETCH_ALL, UPDATE, DISLIKE, LIKE } from '../constants/actionTypes';
 
-export default (videos = [], action) => {
+const videosReducer = (state = { videos: [] }, action) => {
     switch (action.type) {
         case UPDATE:
         case LIKE:
         case DISLIKE:
-            return videos.map((video) => (video._id === action.payload._id ? action.payload : video));
+            return { videos: action.payload };
         case FETCH_ALL:
             return action.payload
         default:
-            return videos;
+            return state;
     }
 }
+
+export default videosReducer;

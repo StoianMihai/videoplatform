@@ -1,18 +1,23 @@
 import path from 'path'
 import express from 'express';
-import mongoose from 'mongoose';
-import morgan from 'morgan'
 import cors from 'cors';
+import morgan from 'morgan'
 import dotenv from 'dotenv';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import videoRoutes from './routes/videos.js';
+import connectDB from './config/db.js'
 
+
+dotenv.config();
+
+connectDB()
 
 const app = express();
-dotenv.config();
+
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
-
+app.use(express.json())
 app.use(cors());
 
 app.use('/videos', videoRoutes);
@@ -29,10 +34,11 @@ if (process.env.NODE_ENV === 'production') {
         res.send('API is running...')
     })
 }
+//showing the message for the 404 error
+app.use(notFound)
+
+//have messages with the error in production mode
+app.use(errorHandler)
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
-    .catch((error) => console.log(error.message));
-
-mongoose.set('useFindAndModify', false);
+app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`))

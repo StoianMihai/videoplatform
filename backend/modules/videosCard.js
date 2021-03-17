@@ -19,6 +19,6 @@ const videoSchema = mongoose.Schema({
 
 });
 
-const CardVideo = mongoose.model('Video', videoSchema);
+const CardVideo = mongoose.model('Videos', videoSchema);
 
 export default CardVideo;

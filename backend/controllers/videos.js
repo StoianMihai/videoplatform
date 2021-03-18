@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
-import asyncHandler from 'express-async-handler'
 import CardVideos from '../modules/videosCard.js'
 
-export const getVideos = asyncHandler(async (req, res) => {
+export const getVideos = async (req, res) => {
 
     try {
         const keyword = req.query.keyword
@@ -19,9 +18,9 @@ export const getVideos = asyncHandler(async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 
-})
+}
 
-export const updateVideo = asyncHandler(async (req, res) => {
+export const updateVideo = async (req, res) => {
     const { id: _id } = req.params;
     const video = req.body;
 
@@ -29,9 +28,9 @@ export const updateVideo = asyncHandler(async (req, res) => {
 
     const updatedVideo = await CardVideos.findByIdAndUpdate(_id, { ...video, _id }, { new: true });
     res.json(updatedVideo);
-})
+}
 
-export const likeVideo = asyncHandler(async (req, res) => {
+export const likeVideo = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
@@ -41,9 +40,9 @@ export const likeVideo = asyncHandler(async (req, res) => {
     const updatedVideo = await CardVideos.findByIdAndUpdate(id, { likeCount: video.likeCount + 1 }, { new: true });
 
     res.json(updatedVideo);
-})
+}
 
-export const dislikeVideo = asyncHandler(async (req, res) => {
+export const dislikeVideo = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
@@ -53,4 +52,4 @@ export const dislikeVideo = asyncHandler(async (req, res) => {
     const updatedVideo = await CardVideos.findByIdAndUpdate(id, { dislikeCount: video.dislikeCount + 1 }, { new: true });
 
     res.json(updatedVideo);
-})
+}

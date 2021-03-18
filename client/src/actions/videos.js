@@ -7,7 +7,12 @@ import * as api from '../api';
 export const getVideos = (keyword = '') => async (dispatch) => {
 
     try {
-        const { data } = await api.fetchVideos({ keyword });
+        const config = {
+            headers: {
+                'Content-Type': 'text/html'
+            }
+        }
+        const { data } = await api.fetchVideos({ keyword }, config);
 
         dispatch({ type: FETCH_ALL, payload: data });
     } catch (error) {
@@ -17,7 +22,12 @@ export const getVideos = (keyword = '') => async (dispatch) => {
 
 export const updateVideo = (id, video) => async (dispatch) => {
     try {
-        const { data } = await api.updateVideo(id, video);
+        const config = {
+            headers: {
+                'Content-Type': 'text/html'
+            }
+        }
+        const { data } = await api.updateVideo(id, video, config);
 
         dispatch({ type: UPDATE, payload: data });
 
@@ -28,7 +38,12 @@ export const updateVideo = (id, video) => async (dispatch) => {
 
 export const likeVideo = (id) => async (dispatch) => {
     try {
-        const { data } = await api.likeVideo(id);
+        const config = {
+            headers: {
+                'Content-Type': 'text/html'
+            }
+        }
+        const { data } = await api.likeVideo(id, config);
 
         dispatch({ type: LIKE, payload: data });
 
@@ -38,7 +53,12 @@ export const likeVideo = (id) => async (dispatch) => {
 }
 export const dislikeVideo = (id) => async (dispatch) => {
     try {
-        const { data } = await api.dislikeVideo(id);
+        const config = {
+            headers: {
+                'Content-Type': 'text/html'
+            }
+        }
+        const { data } = await api.dislikeVideo(id, config);
 
         dispatch({ type: DISLIKE, payload: data });
 

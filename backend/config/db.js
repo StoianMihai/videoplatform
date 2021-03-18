@@ -6,6 +6,8 @@ const connectDB = async () => {
             useUnifiedTopology: true,
             useNewUrlParser: true,
         })
+        mongoose.set('useFindAndModify', false);
+
         console.log(`MongoDB Connected: ${conn.connection.host}`)
     } catch (error) {
         console.log(`Error: ${error}`)
@@ -13,7 +15,6 @@ const connectDB = async () => {
     }
 
 }
-mongoose.set('useFindAndModify', false);
 
 
 export default connectDB

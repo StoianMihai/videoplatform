@@ -8,26 +8,27 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import videoRoutes from './routes/videos.js';
 import connectDB from './config/db.js'
 
+dotenv.config();
 
 
 connectDB()
 
 const app = express();
-dotenv.config();
+app.use(express.json())
+
 
 
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
-app.use(express.json())
 app.use(cors())
 
 
-//to see what we are requisting
-app.use((req, res, next) => {
-    console.log(req.originalUrl)
-    next()
-})
+// //to see what we are requisting
+// app.use((req, res, next) => {
+//     console.log(req.originalUrl)
+//     next()
+// })
 
 app.use('/videos', videoRoutes);
 

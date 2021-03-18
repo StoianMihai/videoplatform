@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const getUrl = window.location.href;
 const url = `${getUrl}/videos`;
 

@@ -1,6 +1,8 @@
 # videoplatform
 Video Platform
 
+Demo: https://videoplatformdev.herokuapp.com/
+
 Nodejs, React, Redux, Material-Ui, MongoDB connection.
 
 How to start:
@@ -10,6 +12,8 @@ Run npm install in root folder, then cd in client and run npm install.
 Npm start pentru a porni server-ul pe http://localhost:5000 sau npm run dev pentru a porni ambele si frontend si backend.
 
 Create .env file with these variables:
+
+Replace password given.
 
 NODE_ENV = production
 PORT = 5000

@@ -21,6 +21,11 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json())
 app.use(cors());
 
+//to see what we are requisting
+app.use((req, res, next) => {
+    console.log(req.originalUrl)
+    next()
+})
 
 app.use('/videos', videoRoutes);
 

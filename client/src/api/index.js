@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const url = 'https://videoplatformdev.herokuapp.com/videos';
+const getUrl = window.location.href;
+const url = `${getUrl}/videos`;
 
 
 export const fetchVideos = ({ keyword }) => axios.get(url, { params: { keyword: keyword } });

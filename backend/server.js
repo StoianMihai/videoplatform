@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 app.use(cors())
-
+app.options('*', cors());
 
 // //to see what we are requisting
 // app.use((req, res, next) => {

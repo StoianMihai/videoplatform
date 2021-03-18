@@ -9,7 +9,7 @@ export const getVideos = (keyword = '') => async (dispatch) => {
     try {
         const config = {
             headers: {
-                'Content-Type': 'text/html'
+                'Content-Type': 'application/json'
             }
         }
         const { data } = await api.fetchVideos({ keyword }, config);
@@ -24,7 +24,7 @@ export const updateVideo = (id, video) => async (dispatch) => {
     try {
         const config = {
             headers: {
-                'Content-Type': 'text/html'
+                'Content-Type': 'application/json'
             }
         }
         const { data } = await api.updateVideo(id, video, config);
@@ -40,7 +40,7 @@ export const likeVideo = (id) => async (dispatch) => {
     try {
         const config = {
             headers: {
-                'Content-Type': 'text/html'
+                'Content-Type': 'application/json'
             }
         }
         const { data } = await api.likeVideo(id, config);
@@ -55,7 +55,7 @@ export const dislikeVideo = (id) => async (dispatch) => {
     try {
         const config = {
             headers: {
-                'Content-Type': 'text/html'
+                'Content-Type': 'application/json'
             }
         }
         const { data } = await api.dislikeVideo(id, config);

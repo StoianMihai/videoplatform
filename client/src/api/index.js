@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/videos';
+const url = 'https://localhost:5000/videos';
 
 
 export const fetchVideos = ({ keyword }) => axios.get(url, { params: { keyword: keyword } });

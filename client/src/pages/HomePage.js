@@ -31,8 +31,8 @@ const HomePage = ({ match }) => {
                     <Route render={({ history }) => <SearchBox history={history} />} />
 
                 </AppBar>
-                {videos.length !== 0 ? (<Grid className={classes.searchTerm}><Typography>We've found the following results for: {keyword}</Typography></Grid>)
-                    : videos.length === 0 ? (
+                {keyword && videos.length ? (<Grid className={classes.searchTerm}><Typography>We've found the following results for: {keyword}</Typography></Grid>)
+                    : keyword && !videos.length ? (
                         <Grid className={classes.searchTerm}><Typography>Sorry we didn't found results for: {keyword}</Typography></Grid>
                     ) : ''}
 

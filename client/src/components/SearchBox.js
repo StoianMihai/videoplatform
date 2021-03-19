@@ -69,16 +69,6 @@ const SearchBox = ({ history }) => {
         }
     }
 
-    // function findUserInfo(userName, searchString) {
-    //     return userName.toLowerCase().substr(0, searchString.length).includes(searchString.toLowerCase());
-    // }
-    // let searchResult = users.filter(i => findUserInfo(i.userName, '<search_string>'))
-
-    //    const mapedArr = arr.map(el => el.title)\
-    //    ['title1', 'title2']
-    //    mapedArr.find()
-
-
 
     return (
         <>

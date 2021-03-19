@@ -33,7 +33,7 @@ export default makeStyles((theme) => ({
     },
     searchTerm: {
         margin: '1rem',
-        color: '#ffffff';
+        color: '#ffffff'
     }
 
 }));

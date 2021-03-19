@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardActions, Button, Typography } from '@material-ui/core';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import { useDispatch } from 'react-redux';
 import ReactPlayer from 'react-player/youtube'
 
@@ -24,7 +25,7 @@ const Video = ({ video }) => {
                     {video.likeCount}
                 </Button>
                 <Button size="small" color="primary" onClick={() => dispatch(dislikeVideo(video._id))}>
-                    <ThumbUpAltIcon fontSize="small" />
+                    <ThumbDownAltIcon fontSize="small" />
                     &nbsp; Dislike &nbsp;
                     {video.dislikeCount}
                 </Button>

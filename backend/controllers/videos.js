@@ -33,7 +33,7 @@ export const updateVideo = async (req, res) => {
 export const likeVideo = async (req, res) => {
     const { id } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No video with that id');
 
     const video = await CardVideos.findById(id);
 
@@ -45,7 +45,7 @@ export const likeVideo = async (req, res) => {
 export const dislikeVideo = async (req, res) => {
     const { id } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No video with that id');
 
     const video = await CardVideos.findById(id);
 

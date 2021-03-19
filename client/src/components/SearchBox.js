@@ -69,7 +69,6 @@ const SearchBox = ({ history }) => {
         }
     }
 
-
     return (
         <>
             <div className={classes.search}>

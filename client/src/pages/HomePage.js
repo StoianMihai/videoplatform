@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom'
 import { Container, AppBar, Typography, Grow, Grid, Link } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getVideos } from '../actions/videos';
 import Videos from '../components/Posts/Videos';
@@ -10,7 +10,7 @@ import useStyles from '../styles';
 
 const HomePage = ({ match }) => {
     const keyword = match.params.keyword
-
+    const videos = useSelector((state) => state.videos);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -31,9 +31,10 @@ const HomePage = ({ match }) => {
                     <Route render={({ history }) => <SearchBox history={history} />} />
 
                 </AppBar>
-                {keyword && (
-                    <Grid className={classes.searchTerm}><Typography>We've found the following results for: {keyword}</Typography></Grid>
-                )}
+                {videos.length !== 0 ? (<Grid className={classes.searchTerm}><Typography>We've found the following results for: {keyword}</Typography></Grid>)
+                    : videos.length === 0 ? (
+                        <Grid className={classes.searchTerm}><Typography>Sorry we didn't found results for: {keyword}</Typography></Grid>
+                    ) : ''}
 
                 <Grow in>
                     <Container>

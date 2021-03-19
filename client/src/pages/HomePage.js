@@ -30,6 +30,10 @@ const HomePage = ({ match }) => {
                     <Typography className={classes.heading} variant="h3" align="center">Like our videos</Typography>
                     <Route render={({ history }) => <SearchBox history={history} />} />
                 </AppBar>
+                {keyword && (
+                    <Grid><Typography>We've found the following results for: {keyword}</Typography></Grid>
+                )}
+
                 <Grow in>
                     <Container>
                         <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>

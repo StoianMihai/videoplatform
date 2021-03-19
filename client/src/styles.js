@@ -30,6 +30,10 @@ export default makeStyles((theme) => ({
         margin: '1.5rem',
         marginRight: '2rem',
         fontWeight: '900'
+    },
+    searchTerm: {
+        margin: '1rem',
+        color: '#ffffff';
     }
 
 }));

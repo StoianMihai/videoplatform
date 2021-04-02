@@ -20,16 +20,6 @@ export const getVideos = async (req, res) => {
 
 }
 
-export const updateVideo = async (req, res) => {
-    const { id: _id } = req.params;
-    const video = req.body;
-
-    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No video with that id');
-
-    const updatedVideo = await CardVideos.findByIdAndUpdate(_id, { ...video, _id }, { new: true });
-    res.json(updatedVideo);
-}
-
 export const likeVideo = async (req, res) => {
     const { id } = req.params;
 

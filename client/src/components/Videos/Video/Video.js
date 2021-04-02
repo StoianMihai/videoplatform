@@ -13,6 +13,8 @@ import useStyles from './styles';
 const Video = ({ video }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
+
+
     return (
         <Card className={classes.card}>
             <ReactPlayer url={video.videoUrl} width='100%' />

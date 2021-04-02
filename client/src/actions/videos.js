@@ -1,4 +1,4 @@
-import { FETCH_ALL, UPDATE, LIKE, DISLIKE } from '../constants/actionTypes';
+import { FETCH_ALL, LIKE, DISLIKE } from '../constants/actionTypes';
 
 import * as api from '../api';
 
@@ -13,18 +13,6 @@ export const getVideos = (keyword = '') => async (dispatch) => {
         dispatch({ type: FETCH_ALL, payload: data });
     } catch (error) {
         console.log(error);
-    }
-}
-
-export const updateVideo = (id, video) => async (dispatch) => {
-    try {
-
-        const { data } = await api.updateVideo(id, video);
-
-        dispatch({ type: UPDATE, payload: data });
-
-    } catch (error) {
-        console.log(error)
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, CircularProgress, Grow } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import Video from './Post/Video';
+import Video from './Video/Video';
 import useStyles from './styles';
 
 

@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom'
 import { Container, AppBar, Typography, Grow, Grid, Link } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { getVideos } from '../actions/videos';
-import Videos from '../components/Posts/Videos';
+import Videos from '../components/Videos/Videos';
 import SearchBox from '../components/SearchBox'
 import useStyles from '../styles';
 

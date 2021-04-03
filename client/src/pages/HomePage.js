@@ -14,16 +14,18 @@ import Videos from "../components/Videos/Videos";
 import SearchBox from "../components/SearchBox";
 import useStyles from "../styles";
 import VideoContext from "../contexts/VideoContext";
+import { useVideos } from "../utils/useVideos";
 
 const HomePage = ({ match }) => {
-  const videos = React.useContext(VideoContext);
   const keyword = match.params.keyword;
   // const videos = useSelector((state) => state.videos);
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const { videos } = useVideos({ keyword });
+
   return (
-    <>
+    <VideoContext.Provider value={videos}>
       <Container maxWidth="lg">
         <AppBar className={classes.appBar} position="static" color="inherit">
           {keyword && (
@@ -73,7 +75,7 @@ const HomePage = ({ match }) => {
           <p>Video Platform &copy; Mihai Stoian</p>
         </Grid>
       </Grid>
-    </>
+    </VideoContext.Provider>
   );
 };
 

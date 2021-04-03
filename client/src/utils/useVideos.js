@@ -2,19 +2,18 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
-const url = "https://videoplatformdev.herokuapp.com/videos";
-
-export const useVideos = () => {
+export const useVideos = ({ keyword }) => {
   const [videos, setVideos] = useState(null);
+  const url = "https://videoplatformdev.herokuapp.com/videos";
 
   useEffect(() => {
     async function getVideos() {
-      const result = await axios.get(url);
+      const result = await axios.get(url, { params: { keyword: keyword } });
       const data = await result.data;
       if (data) setVideos(data);
     }
-    getVideos();
-  }, [videos]);
+    if (!videos) getVideos();
+  }, [videos, keyword]);
   return { videos };
 };
 

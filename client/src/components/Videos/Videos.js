@@ -3,10 +3,15 @@ import { Grid, CircularProgress, Grow } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import Video from './Video/Video';
 import useStyles from './styles';
+import VideoContext from '../../contexts/VideoContext'
 
 
 const Videos = () => {
-    const videos = useSelector((state) => state.videos);
+
+    const videos = React.useContext(VideoContext)
+    console.log(videos)
+
+    //const videos = useSelector((state) => state.videos);
     const classes = useStyles();
     return (
         !videos.length ? <CircularProgress /> : (

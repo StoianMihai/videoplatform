@@ -4,13 +4,14 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import { useDispatch } from 'react-redux';
 import ReactPlayer from 'react-player/youtube'
-
 import { likeVideo, dislikeVideo } from '../../../actions/videos';
 import useStyles from './styles';
 
 
 
 const Video = ({ video }) => {
+
+
     const dispatch = useDispatch();
     const classes = useStyles();
 

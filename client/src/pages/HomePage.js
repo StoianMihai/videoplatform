@@ -15,6 +15,10 @@ import SearchBox from "../components/SearchBox";
 import useStyles from "../styles";
 import VideoContext from "../contexts/VideoContext";
 import { useVideos } from "../utils/useVideos";
+import { useLike } from "../utils/useLike"
+import { useDisLike } from "../utils"
+
+
 
 const HomePage = ({ match }) => {
   const keyword = match.params.keyword;
@@ -24,8 +28,11 @@ const HomePage = ({ match }) => {
 
   const { videos } = useVideos({ keyword });
 
+  const { likeCount } = useLike();
+  const { dislike } = useDisLike();
+
   return (
-    <VideoContext.Provider value={videos}>
+    <VideoContext.Provider value={{ videos, likeCount, dislike }}>
       <Container maxWidth="lg">
         <AppBar className={classes.appBar} position="static" color="inherit">
           {keyword && (

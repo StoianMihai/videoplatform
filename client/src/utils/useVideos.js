@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const useVideos = ({ keyword }) => {
   const [videos, setVideos] = useState(null);
-  const url = "https://videoplatformdev.herokuapp.com/videos";
+  const url = `${process.env.API_HOSTNAME}/videos`;
 
   useEffect(() => {
     async function getVideos() {
@@ -13,7 +13,7 @@ export const useVideos = ({ keyword }) => {
       if (data) setVideos(data);
     }
     if (!videos) getVideos();
-  }, [videos, keyword]);
+  }, [videos, keyword, url]);
   return { videos };
 };
 

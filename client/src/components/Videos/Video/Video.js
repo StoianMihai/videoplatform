@@ -11,7 +11,7 @@ import useStyles from './styles';
 
 const Video = ({ video }) => {
 
-
+    const { likeCount } = React.useContext(VideoContext);
     const dispatch = useDispatch();
     const classes = useStyles();
 
